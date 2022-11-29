@@ -132,7 +132,7 @@ class Time_table:public Teacher,public Subject,public Student,public Classes
       }
       else
       {
-        cout<<"\n\t"<<s_time++<<"-"<<s_time<<"\t| "<<subject_name[year][section]<<"\t"<<subject_name[year][section]<<"\t"<<subject_name[year][section]<<"\t"<<subject_name[year][code]<<"\t"<<subject_name[year][section];
+        cout<<"\n\t"<<s_time++<<"-"<<s_time<<"\t| "<<subject_name[year][section]<<"\t"<<subject_name[year][section]<<"\t"<<subject_name[year][section]<<"\t"<<subject_name[year][section]<<"\t"<<subject_name[year][section];
         section++;
       }
       if (s_time>11)
