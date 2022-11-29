@@ -5,7 +5,7 @@ using namespace std;
 class Teacher
 {
   public:
-  // string teacher_name[4]={"Devendra Kumar", "Navneet Kaur", "Prince Arora", "Ravi Patni"};
+  string teacher_name[8]={"Mr Devendra Kumar","Mr Prince Arora", "Mr Ravi Patni", "Mr Vikas Choudhary", "Mr Ajay Bansal", "Mr Sanskar Gupta", "Mrs Avneet Kaur", "Mrs Sonia Sharma"};
   // int teacher_code[4]={1,2,3,4};
 };
 class Subject
@@ -26,8 +26,8 @@ class Classes
 {
   public:
   string class_name[4]={"MCA","BCA","B.Tech","M.Tech"};
-  string class_section[4]={"DOC10","DOC11","DOC12","DOC13"};
-  string class_sec[2][4]=
+  // string class_section[4]={"DOC10","DOC11","DOC12","DOC13"};
+  string class_section[2][4]=
     {
           {"A1","A2","A3","A4"},{"B1","B2","B3","B4"}   
     };
@@ -42,10 +42,12 @@ class Time_table:public Teacher,public Subject,public Student,public Classes
      int yr=0; 
     if(a==1){
       
-      cout<<"Select your Name: \n1) Mr Devendra Kumar\n2) Mr Prince Arora\n3) Mr Ravi Patni\n4) Mr Vikas Choudhary\n5) Mr Ajay Bansal\n6) Mr Sanskar Gupta\n7) Mrs Avneet Kaur\n8)Mrs Sonia Sharma\n";
+      cout<<"Select your Name: \n1) Mr Devendra Kumar\n2) Mr Prince Arora\n3) Mr Ravi Patni\n4) Mr Vikas Choudhary\n5) Mr Ajay Bansal\n6) Mr Sanskar Gupta\n7) Mrs Avneet Kaur\n8) Mrs Sonia Sharma\n";
       cin>>code;
+      cout<<"\n     ----------------------------------"<<teacher_name[--code]<<"-----------------------------------";
       if(code>4){
         yr=1;
+        code=1;
       }
       code--;
            cout<<"\n\tTime"<<"\t| Monday"<<"\tTuesday"<<"\t\tWednesday"<<"\tThrusday"<<"\tFriday";
@@ -55,13 +57,14 @@ class Time_table:public Teacher,public Subject,public Student,public Classes
            if (code>3){
             code =0;
            }
+           
            if (i==2)
           {
           cout<<"\n\t"<<s_time++<<"-"<<s_time<<"\t"<<"| Lunch"<<"\t\t"<<"Lunch"<<"\t\t"<<"Lunch"<<"\t\t"<<"Lunch"<<"\t\t"<<"Lunch"; 
     
           }
           else{
-          cout<<"\n\t"<<s_time++<<"-"<<s_time<<"\t| "<<class_section[code]<<"\t\t"<<class_section[code]<<"\t\t"<<class_section[code]<<"\t\t"<<class_section[code]<<"\t\t"<<class_section[code];
+          cout<<"\n\t"<<s_time++<<"-"<<s_time<<"\t| "<<class_section[yr][code]<<"\t\t"<<class_section[yr][code]<<"\t\t"<<class_section[yr][code]<<"\t\t"<<class_section[yr][code]<<"\t\t"<<class_section[yr][code];
           code++;
         
          }        
