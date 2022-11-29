@@ -5,14 +5,15 @@ using namespace std;
 class Teacher
 {
   public:
-  string teacher_name[4]={"Devendra Kumar", "Navneet Kaur", "Prince Arora", "Ravi Patni"};
-  int teacher_code[4]={1,2,3,4};
+  // string teacher_name[4]={"Devendra Kumar", "Navneet Kaur", "Prince Arora", "Ravi Patni"};
+  // int teacher_code[4]={1,2,3,4};
 };
 class Subject
 {
   public:
-  string subject_name[4]={"English ","Maths   ","Computer","Hindi   "};
-  int subject_code[4]={1,2,3,4};   
+  string subject_name[2][4]={{"Linux   ","C++ OOPs","Networking","Analytical"},
+                             {"Python  ","Big Data","DS & Algo","Java    "}};
+  // int subject_code[4]={1,2,3,4};   
 };
 
 class Student
@@ -26,18 +27,26 @@ class Classes
   public:
   string class_name[4]={"MCA","BCA","B.Tech","M.Tech"};
   string class_section[4]={"DOC10","DOC11","DOC12","DOC13"};
+  string class_sec[2][4]=
+    {
+          {"A1","A2","A3","A4"},{"B1","B2","B3","B4"}   
+    };
 };
-
 class Time_table:public Teacher,public Subject,public Student,public Classes
 {
   public:
   void display(int a){
-  int code;
+  int code = 0;
+  int course,year,section;
   int s_time=9;
-  // int e_time=10;
+     int yr=0; 
     if(a==1){
-      cout<<"Enter the Teacher code: ";
+      
+      cout<<"Select your Name: \n1) Mr Devendra Kumar\n2) Mr Prince Arora\n3) Mr Ravi Patni\n4) Mr Vikas Choudhary\n5) Mr Ajay Bansal\n6) Mr Sanskar Gupta\n7) Mrs Avneet Kaur\n8)Mrs Sonia Sharma\n";
       cin>>code;
+      if(code>4){
+        yr=1;
+      }
       code--;
            cout<<"\n\tTime"<<"\t| Monday"<<"\tTuesday"<<"\t\tWednesday"<<"\tThrusday"<<"\tFriday";
            cout<<"\n     ------------------------------------------------------------------------------------";
@@ -65,16 +74,56 @@ class Time_table:public Teacher,public Subject,public Student,public Classes
     }
     else 
     if(a==2){
-      cout<<"Enter your section: ";
-      cin>>code;
-      code--;
+      // cout<<"Select Your Course: \n 1) MCA \n 2) BCA \n)";
+      // cin>>course;
+      // if (course==1)
+      // {
+      cout<<"Select Your Year: \n 1) 1st Year \n 2) 2nd Year \n)";
+      cin>>year;
+      if(year==1){
+      cout<<"Choose Your Section: \n 1) A1  \n 2) A2 \n 3) A3 \n 4) A4\n";
+      cin>>section;
+      }  
+      else
+      if(year==2) {
+      cout<<"Choose Your Section: \n 1) B1  \n 2) B2 \n 3) B3 \n 4) B4\n";
+      cin>>section;
+      }
+      else {
+        cout<<"Enter valid section";
+      }
+      
+      // if (course==2){
+      //   cout<<"Select Your Year: \n 1) 1st Year \n 2) 2nd Year \n 3) 3rd Year)";
+      // cin>>year;
+      // if(year==1){
+      // cout<<"Choose Your Section: \n 1)A1  \n 2) A2 \n 3) A3 \n 4) A4)";
+      // cin>>section;
+      // }  
+      // else
+      // if(year==2) {
+      // cout<<"Choose Your Section: \n 1)B1  \n 2) B2 \n 3) B3 \n 4) B4)";
+      // cin>>section;
+      // }
+      // else if(year==3){
+      // cout<<"Choose Your Section: \n 1)C1  \n 2) C2 \n 3) C3 \n 4) C4)";
+      // cin>>section;
+      // }
+      // else {
+      //   cout<<"Enter valid section";
+      // }
+      // }
+
+      year--;
+      section--;
       cout<<"\n\tTime"<<"\t| Monday"<<"\tTuesday"<<"\t\tWednesday"<<"\tThrusday"<<"\tFriday";
       cout<<"\n     ------------------------------------------------------------------------------------";
+        // code=0;
       for (int i = 0; i < 5; i++)
       {
-        if (code>3)
+        if (section>3)
         {
-          code=0;
+          section=0;
         }
         
       if (i==2)
@@ -83,8 +132,8 @@ class Time_table:public Teacher,public Subject,public Student,public Classes
       }
       else
       {
-        cout<<"\n\t"<<s_time++<<"-"<<s_time<<"\t| "<<subject_name[code]<<"\t"<<subject_name[code]<<"\t"<<subject_name[code]<<"\t"<<subject_name[code]<<"\t"<<subject_name[code];
-        code++;
+        cout<<"\n\t"<<s_time++<<"-"<<s_time<<"\t| "<<subject_name[year][section]<<"\t"<<subject_name[year][section]<<"\t"<<subject_name[year][section]<<"\t"<<subject_name[year][code]<<"\t"<<subject_name[year][section];
+        section++;
       }
       if (s_time>11)
       {
@@ -100,8 +149,6 @@ class Time_table:public Teacher,public Subject,public Student,public Classes
 int main()
 {
   int n;
-  Teacher t;
-  Subject s;
   Time_table tt;
   // int s_time=9;
   // int code=2;
